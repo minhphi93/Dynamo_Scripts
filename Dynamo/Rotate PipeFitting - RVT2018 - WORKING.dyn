@@ -1,0 +1,94 @@
+<Workspace Version="1.3.1.1736" X="-1004.54830764456" Y="-1015.78888510986" zoom="1.37642496382541" ScaleFactor="1" Name="Home" Description="" RunType="Manual" RunPeriod="1000" HasRunWithoutCrash="False">
+  <NamespaceResolutionMap>
+    <ClassMap partialName="List" resolvedName="DSCore.List" assemblyName="DSCoreNodes.dll" />
+  </NamespaceResolutionMap>
+  <Elements>
+    <Dynamo.Graph.Nodes.CodeBlockNodeModel guid="66a76521-a5fe-4542-839a-4656933fb321" type="Dynamo.Graph.Nodes.CodeBlockNodeModel" nickname="Code Block" x="663.910341136752" y="1060.24590492145" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="true" isPinned="false" CodeText="45;" ShouldFocus="false" />
+    <PythonNodeModels.PythonNode guid="c972dcad-9fbd-482f-8bab-d2a74f15277b" type="PythonNodeModels.PythonNode" nickname="Python Script" x="1095.3923502389" y="1031.69300793499" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" IsFrozen="false" isPinned="true" inputcount="3">
+      <PortInfo index="0" default="False" />
+      <PortInfo index="1" default="False" />
+      <PortInfo index="2" default="False" />
+      <Script>import clr
+clr.AddReference("RevitAPI")
+import Autodesk
+from Autodesk.Revit.DB import *
+
+clr.AddReference('ProtoGeometry')
+from Autodesk.DesignScript.Geometry import *
+
+clr.AddReference("RevitNodes")
+import Revit
+
+clr.ImportExtensions(Revit.Elements)
+
+clr.AddReference("RevitServices")
+import RevitServices
+from RevitServices.Persistence import DocumentManager
+from RevitServices.Transactions import TransactionManager
+
+from System.Collections.Generic import *
+import math
+
+doc = DocumentManager.Instance.CurrentDBDocument
+
+clr.ImportExtensions(Revit.GeometryConversion)
+
+inn = [UnwrapElement(IN[0]),UnwrapElement(IN[1])]
+conns = [0,1]
+
+def disconnect(curve):
+	connectors = curve.ConnectorManager.Connectors
+	for conn in connectors:
+		if conn.IsConnected:
+			for c in conn.AllRefs:
+				if conn.IsConnectedTo(c):
+					conns[0] = conn
+					conns[1] = c
+					conn.DisconnectFrom(c)
+
+angle = (IN[2]*math.pi)/180
+TransactionManager.Instance.EnsureInTransaction(doc)
+
+
+connectors = inn[0].MEPModel.ConnectorManager.Connectors
+for c in connectors:
+	if c.GetMEPConnectorInfo().IsPrimary:
+		primary = c
+		break
+	primary = c
+loc = inn[0].Location
+ductloc = inn[1].Location
+center = primary.CoordinateSystem.BasisZ
+centerrot = XYZ(center.X,center.Y,center.Z)
+line = Autodesk.Revit.DB.Line.CreateUnbound(primary.Origin,center)
+disconnect(inn[1])
+ductloc.Rotate(line,angle)
+loc.Rotate(line,angle)
+conns[0].ConnectTo(conns[1])
+
+TransactionManager.Instance.TransactionTaskDone()
+
+OUT =  IN[0]</Script>
+    </PythonNodeModels.PythonNode>
+    <Dynamo.Nodes.DSModelElementSelection guid="02d47a7f-d046-437e-9509-364cb0f9088f" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select PIPE ATTACHED TO FTG" x="797.462738477287" y="1047.23267092968" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" />
+    <Dynamo.Nodes.DSModelElementSelection guid="945268a7-cfa1-4c18-a3b2-c1cf07be608e" type="Dynamo.Nodes.DSModelElementSelection" nickname="Select PIPE FITTING" x="793.611286964105" y="891.035014645128" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false" />
+    <CoreNodeModels.Input.DoubleSlider guid="302a4763-d302-4b9a-8094-e3649f15f579" type="CoreNodeModels.Input.DoubleSlider" nickname="Number Slider" x="711.427666163585" y="1164.94241770499" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" IsFrozen="false" isPinned="false">
+      <System.Double>26.4</System.Double>
+      <Range min="0" max="100" step="0.1" />
+    </CoreNodeModels.Input.DoubleSlider>
+  </Elements>
+  <Connectors>
+    <Dynamo.Graph.Connectors.ConnectorModel start="02d47a7f-d046-437e-9509-364cb0f9088f" start_index="0" end="c972dcad-9fbd-482f-8bab-d2a74f15277b" end_index="1" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="945268a7-cfa1-4c18-a3b2-c1cf07be608e" start_index="0" end="c972dcad-9fbd-482f-8bab-d2a74f15277b" end_index="0" portType="0" />
+    <Dynamo.Graph.Connectors.ConnectorModel start="302a4763-d302-4b9a-8094-e3649f15f579" start_index="0" end="c972dcad-9fbd-482f-8bab-d2a74f15277b" end_index="2" portType="0" />
+  </Connectors>
+  <Notes>
+    <Dynamo.Graph.Notes.NoteModel guid="8a097b5b-9bc3-436e-ba39-b9f3ff5e82b9" text="Fitting" x="825.384826093417" y="849.802909134121" />
+    <Dynamo.Graph.Notes.NoteModel guid="fcca1ba3-3cd2-487d-b5e5-87f7c650a96a" text="Pipe" x="832.803674779082" y="1009.30815587593" />
+  </Notes>
+  <Annotations />
+  <Presets />
+  <Cameras>
+    <Camera Name="Background Preview" eyeX="-17" eyeY="24" eyeZ="50" lookX="12" lookY="-13" lookZ="-58" upX="0" upY="1" upZ="0" />
+  </Cameras>
+</Workspace>

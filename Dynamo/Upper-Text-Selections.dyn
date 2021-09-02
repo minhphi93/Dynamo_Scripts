@@ -1,0 +1,221 @@
+{
+  "Uuid": "0744f45f-1b2b-420f-a032-4adab010afb5",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "Upper-Text-Selections",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Rhythm.Revit.Elements.TextNotes.ToUpper@Revit.Elements.Element",
+      "Id": "a6f657c3276b4b3da0f5bbf98cc8c6fc",
+      "Inputs": [
+        {
+          "Id": "8c1bdb7237814390b84c95853f1c3df1",
+          "Name": "textNote",
+          "Description": "The text note to convert.\n\nElement",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5f70e06eeec745269e8e6fd3929f1784",
+          "Name": "textNote",
+          "Description": "The converted text note.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "This node will convert the text note to upper with formatting.\n\nTextNotes.ToUpper (textNote: Element): Element"
+    },
+    {
+      "ConcreteType": "Dynamo.Nodes.DSModelElementsSelection, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "InstanceId": [
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8641",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8642",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8643",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8644",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8645",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8646",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8647",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8648",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8649",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e864a",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e864b",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e864c",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e864d",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e864e",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e864f",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8650",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8651",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8652",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8653",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8654",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8655",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8656",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8657",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8658",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8659",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e865a",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e865b",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e865c",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e865d",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e865e",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e865f",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8660",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8661",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8662",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8663",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8664",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8665",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8666",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8667",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8668",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8669",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e866a",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e866b",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e866c",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e866d",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e866e",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e866f",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8670",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8671",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8672",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8673",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8674",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8675",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8676",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8677",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8678",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8679",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e867a",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e867b",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e867c",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e867d",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e867e",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e867f",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8680",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8681",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8682",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8683",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8684",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8685",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8686",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8687",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8688",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8689",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e868a",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e868b",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e868c",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e868d",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e868e",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e868f",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8690",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8691",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8692",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8693",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8694",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8695",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8696",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8697",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8698",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e8699",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e869a",
+        "1973478f-fe2e-4f40-b10f-97b279bdc7fc-000e869b"
+      ],
+      "Id": "791a4fd34be341e2b545e56dff537503",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "cf3cfdd1d88e4a2189261fd11777022b",
+          "Name": "Elements",
+          "Description": "The selected elements.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "cf3cfdd1d88e4a2189261fd11777022b",
+      "End": "8c1bdb7237814390b84c95853f1c3df1",
+      "Id": "0506af59b74c419e8369e172552b9fc5"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "Rhythm",
+      "Version": "2021.7.2",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "a6f657c3276b4b3da0f5bbf98cc8c6fc"
+      ]
+    }
+  ],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "ʳʰʸᵗʰᵐ|TextNotes.ToUpper",
+        "Id": "a6f657c3276b4b3da0f5bbf98cc8c6fc",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 588.0,
+        "Y": 394.0
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Select Model Elements",
+        "Id": "791a4fd34be341e2b545e56dff537503",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 235.0,
+        "Y": 377.0
+      }
+    ],
+    "Annotations": [],
+    "X": 0.0,
+    "Y": 0.0,
+    "Zoom": 1.0
+  }
+}

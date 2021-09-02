@@ -1,0 +1,250 @@
+{
+  "Uuid": "bbad9b05-b541-4dd1-927f-bc6b83c554c6",
+  "IsCustomNode": false,
+  "Description": null,
+  "Name": "LearningSpace",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "#VARIABLE INPUTS\r\nDOG = IN[0]\r\nCAT = IN[1]\r\nFISH = IN[2]\r\nA = \"_\"\r\n\r\nZ = DOG + A + CAT + A + FISH\r\n\r\nOUT = Z",
+      "VariableInputPorts": true,
+      "Id": "dd3c3bacc6bc4238ae0632983975c568",
+      "Inputs": [
+        {
+          "Id": "b78e476be6584eadb69f03e0dc5f4bb0",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "add3f19f64b5488a9bbe6be69f596cd7",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "f40ef84ce9dc47feb9daeb95c728484c",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "309beaa8966d4ad1b1ea9846a6fc9f63",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "\"ABC\";\n\"CVB\";\n\"AAA\";",
+      "Id": "01ec0f71dccd4c91a4661928a48f21d0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "7b310905aa954a2993cfb72169377e83",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5b548e8ad25d43b8a9d975cecb0693f7",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b46e4b9031f3423e8091ddf96c8baa28",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Load the Python Standard and DesignScript Libraries\r\nimport sys\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\noutList = []\r\n\r\nfor r in clr.References:\r\n\toutList.append(r)\r\n\r\n# Place your code below this line\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = outList",
+      "VariableInputPorts": true,
+      "Id": "e2c5a0c8306d4bc7a583ed3af8c756f9",
+      "Inputs": [
+        {
+          "Id": "ba7ea258748c4f0c9d798265aab80098",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "446434ec257e444fb6c1230b70a9ada4",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    },
+    {
+      "ConcreteType": "PythonNodeModels.PythonNode, PythonNodeModels",
+      "NodeType": "PythonScriptNode",
+      "Code": "# Load the Python Standard and DesignScript Libraries\r\nimport sys\r\nimport clr\r\nclr.AddReference('ProtoGeometry')\r\nfrom Autodesk.DesignScript.Geometry import *\r\n\r\npyt_path = r'C:\\Program Files (x86)\\IronPython 2.7\\Lib'\r\nsys.path.append(pyt_path)\r\n\r\nimport os\r\n\r\nimport System\r\n\r\nimport System.Collections\r\n\r\nclr.AddReference(\"RevitServices\")\r\nimport RevitServices\r\n\r\nfrom RevitServices.Persistence import DocumentManager\r\ndoc = DocumentManager.Instance.CurrentDBDocument\r\nuidoc = DocumentManager.Instance.CurrentUIDocument\r\napp = DocumentManager.Instance.CurrentUIApplication.Application\r\n\r\nfrom RevitServices.Transactions import TransactionManager\r\n\r\nclr.AddReference(\"RevitNodes\")\r\nimport Revit\r\nclr.ImportExtensions(Revit.Elements)\r\nclr.ImportExtensions(Revit.GeometryConversion)\r\n\r\nclr.AddReference(\"RevitAPI\")\r\nfrom Autodesk.Revit.DB import *\r\n\r\nclr.AddReference(\"RevitAPIUI\")\r\nfrom Autodesk.Revit.UI import*\r\n\r\n# The inputs to this node will be stored as a list in the IN variables.\r\ndataEnteringNode = IN\r\n\r\n# Place your code below this line\r\n\r\n# Assign your output to the OUT variable.\r\nOUT = 0",
+      "VariableInputPorts": true,
+      "Id": "41006edf15ce41158f47586310a706b2",
+      "Inputs": [
+        {
+          "Id": "d84090e99b374cb9b142bca01d5ddcfc",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f744efd66d434b4989f724f115161c97",
+          "Name": "OUT",
+          "Description": "Result of the python script",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Runs an embedded IronPython script."
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "7b310905aa954a2993cfb72169377e83",
+      "End": "b78e476be6584eadb69f03e0dc5f4bb0",
+      "Id": "96aae5cca6d247b49217343ae0858a85"
+    },
+    {
+      "Start": "5b548e8ad25d43b8a9d975cecb0693f7",
+      "End": "add3f19f64b5488a9bbe6be69f596cd7",
+      "Id": "2c17bec0699c4847834fc56f4a18bace"
+    },
+    {
+      "Start": "b46e4b9031f3423e8091ddf96c8baa28",
+      "End": "f40ef84ce9dc47feb9daeb95c728484c",
+      "Id": "b24235c8ebea4126a17da3f9b0460b1d"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.6.1.8786",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "dd3c3bacc6bc4238ae0632983975c568",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 380.50186892877042,
+        "Y": 380.22967066971523
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "01ec0f71dccd4c91a4661928a48f21d0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 210.39748433307346,
+        "Y": 408.67735249123615
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Python Script",
+        "Id": "e2c5a0c8306d4bc7a583ed3af8c756f9",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 625.5818293390588,
+        "Y": 368.06962038209468
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Boiler Plate (Py)",
+        "Id": "41006edf15ce41158f47586310a706b2",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 607.31689262778229,
+        "Y": 268.97727094418235
+      }
+    ],
+    "Annotations": [],
+    "X": -86.181082406810788,
+    "Y": 183.29289449864592,
+    "Zoom": 0.98854889960476822
+  }
+}
